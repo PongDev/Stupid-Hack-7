@@ -1,37 +1,37 @@
+'use client';
+
 import { NextPage } from 'next';
 import { CSSProperties } from 'react';
+import { Card } from '@/components';
 
 const IndexPage: NextPage = () => {
-    const cardStyle: CSSProperties = {
-        padding: '10px',
-        margin: '10px',
-        border: '1px solid black',
-        borderRadius: '5px',
-    };
-
     return (
         <div
             style={{
                 alignContent: 'center',
                 justifyContent: 'center',
                 textAlign: 'center',
+                padding: '1rem',
             }}
         >
-            <h1>Werewolf (Now Villager)</h1>
+            <h1 style={{ fontSize: '3rem', padding: '1rem' }}>
+                Werewolf (Now Villager)
+            </h1>
             <div
                 style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '1rem',
                 }}
             >
-                <div style={cardStyle}>People1</div>
-                <div style={cardStyle}>People2</div>
-                <div style={cardStyle}>People3</div>
-                <div style={cardStyle}>People4</div>
-                <div style={cardStyle}>People5</div>
-                <div style={cardStyle}>People6</div>
-                <div style={cardStyle}>People7</div>
-                <div style={cardStyle}>People8</div>
+                <Card role="villager" text="People 1" />
+                <Card role="villager" text="People 2" />
+                <Card role="villager" text="People 3" />
+                <Card role="villager" text="People 4" />
+                <Card role="villager" text="People 5" />
+                <Card role="villager" text="People 6" />
+                <Card role="villager" text="People 7" />
+                <Card role="villager" text="People 8" />
             </div>
         </div>
     );
