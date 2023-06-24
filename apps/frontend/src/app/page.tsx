@@ -1,11 +1,8 @@
+import { Index } from '@/modules/Index';
 import { NextPage } from 'next';
 
 const IndexPage: NextPage = () => {
-    return (
-        <>
-            <p className="text-red-200 bg-red-100">hello</p>
-        </>
-    );
+    return <Index />;
 };
 
 export default IndexPage;

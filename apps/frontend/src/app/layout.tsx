@@ -14,14 +14,12 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
-        <>
-            <html lang="en">
-                <body>
-                    <AppProvider>
-                        <Layout>{children}</Layout>
-                    </AppProvider>
-                </body>
-            </html>
-        </>
+        <html lang="en">
+            <body>
+                <AppProvider>
+                    <Layout>{children}</Layout>
+                </AppProvider>
+            </body>
+        </html>
     );
 }
