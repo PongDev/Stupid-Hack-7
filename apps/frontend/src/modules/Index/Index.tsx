@@ -31,13 +31,9 @@ export const Index: FC = () => {
                     <h1 className="text-center text-4xl mb-4">ชื่อ</h1>
                     <div className="m-4 flex flex-col items-center">
                         {players.map((p, index) => (
-                            <div>
+                            <div key={index}>
                                 <span className="mr-2">{index + 1}. </span>
-                                <TextInput
-                                    key={index}
-                                    id={index}
-                                    text={p.name}
-                                />
+                                <TextInput id={index} text={p.name} />
                             </div>
                         ))}
                         <Link href={'/role'}>
