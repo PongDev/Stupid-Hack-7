@@ -1,10 +1,13 @@
 'use client';
 
-import { NextPage } from 'next';
-import { CSSProperties } from 'react';
 import { Card } from '@/components';
+import { Button } from '@/components/Button';
+import { useAppContext } from '@/core/context';
+import { NextPage } from 'next';
+import Link from 'next/link';
 
 const IndexPage: NextPage = () => {
+    const { players } = useAppContext();
     return (
         <div
             style={{
@@ -24,14 +27,20 @@ const IndexPage: NextPage = () => {
                     gap: '1rem',
                 }}
             >
-                <Card role="villager" text="People 1" />
-                <Card role="villager" text="People 2" />
-                <Card role="villager" text="People 3" />
-                <Card role="villager" text="People 4" />
-                <Card role="villager" text="People 5" />
-                <Card role="villager" text="People 6" />
-                <Card role="villager" text="People 7" />
-                <Card role="villager" text="People 8" />
+                {players.map((p, index) => {
+                    return (
+                        <Card
+                            key={index}
+                            role={p.role}
+                            text={`${index + 1}. ${p.name}`}
+                        />
+                    );
+                })}
+            </div>
+            <div className="mt-4">
+                <Link href={'/'}>
+                    <Button>กลับ</Button>
+                </Link>
             </div>
         </div>
     );

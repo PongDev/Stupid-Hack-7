@@ -27,6 +27,32 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
         numSeer: 0,
     });
 
+    const randomRoles = () => {
+        const newPlayers = [...players];
+        const roles = ['werewolf', 'seer', 'villager'];
+        const numRoles = {
+            werewolf: numbers.numWerewolf,
+            seer: numbers.numSeer,
+            villager: numbers.numPlayer - numbers.numWerewolf - numbers.numSeer,
+        };
+        const rolesArr = [];
+        for (const [key, value] of Object.entries(numRoles)) {
+            for (let i = 0; i < value; i++) {
+                rolesArr.push(key);
+            }
+        }
+        for (let i = 0; i < newPlayers.length; i++) {
+            const randomIndex = Math.floor(Math.random() * rolesArr.length);
+            newPlayers[i].role = rolesArr[randomIndex] as
+                | 'werewolf'
+                | 'seer'
+                | 'villager';
+            rolesArr.splice(randomIndex, 1);
+        }
+        setPlayers(newPlayers);
+        console.log(newPlayers);
+    };
+
     return (
         <AppContext.Provider
             value={{
@@ -36,6 +62,7 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
                 setNumbers,
                 players,
                 setPlayers,
+                randomRoles,
             }}
         >
             {children}

@@ -18,6 +18,7 @@ export const Card: FC<CardProps> = ({ text, role }) => {
                     )}
                 >
                     <p className="text-lg">{text}</p>
+                    <p className="mt-4 text-lg">🧔 VILLAGER</p>
                 </div>
             )}
             {role === 'seer' && (
@@ -27,6 +28,7 @@ export const Card: FC<CardProps> = ({ text, role }) => {
                     )}
                 >
                     <p className="text-lg">{text}</p>
+                    <p className="mt-4 text-lg">👀 SEER</p>
                 </div>
             )}
             {role === 'werewolf' && (
@@ -36,6 +38,7 @@ export const Card: FC<CardProps> = ({ text, role }) => {
                     )}
                 >
                     <p className="text-lg">{text}</p>
+                    <p className="mt-4 text-lg">🐶 WEREWOLF</p>
                 </div>
             )}
         </>

@@ -3,7 +3,10 @@ import { Dispatch, SetStateAction, createContext, useContext } from 'react';
 
 export type themeOptionsType = 'default' | 'dark' | 'subaru' | 'bocchi';
 
-export type PlayersType = { name: string; role: string }[];
+export type PlayersType = {
+    name: string;
+    role: 'werewolf' | 'seer' | 'villager';
+}[];
 
 interface IAppContext {
     themeOptions: themeOptionsType;
@@ -22,6 +25,7 @@ interface IAppContext {
     >;
     players: PlayersType;
     setPlayers: Dispatch<SetStateAction<PlayersType>>;
+    randomRoles: () => void;
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -35,6 +39,7 @@ export const AppContext = createContext<IAppContext>({
     setNumbers: () => null,
     players: [],
     setPlayers: () => null,
+    randomRoles: () => null,
 });
 
 export function useAppContext() {

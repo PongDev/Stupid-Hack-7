@@ -12,25 +12,43 @@ export const Input: FC<InputProps> = ({ field }) => {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
-        if (field === 'numPlayer' && +e.target.value > 18) return;
+        if (field === 'numPlayer' && +e.target.value > 18) {
+            setValue('18');
+            setNumbers((prev) => ({ ...prev, [field]: 18 }));
+            return;
+        }
         if (
             field === 'numSeer' &&
             +e.target.value + numbers.numWerewolf > numbers.numPlayer
-        )
+        ) {
+            setValue((numbers.numPlayer - numbers.numWerewolf).toString());
+            setNumbers((prev) => ({
+                ...prev,
+                [field]: numbers.numPlayer - numbers.numWerewolf,
+            }));
             return;
+        }
         if (
             field === 'numWerewolf' &&
             +e.target.value + numbers.numSeer > numbers.numPlayer
-        )
+        ) {
+            setValue((numbers.numPlayer - numbers.numSeer).toString());
+            setNumbers((prev) => ({
+                ...prev,
+                [field]: numbers.numPlayer - numbers.numSeer,
+            }));
             return;
+        }
 
         setNumbers((prev) => ({ ...prev, [field]: +e.target.value }));
         if (field === 'numPlayer') {
             const newPlayers = [...players];
             if (newPlayers.length < +e.target.value) {
                 while (newPlayers.length < +e.target.value) {
-                    console.log(players);
-                    newPlayers.push({ name: '', role: '' });
+                    newPlayers.push({
+                        name: '',
+                        role: '' as 'werewolf' | 'seer' | 'villager',
+                    });
                 }
                 setPlayers(newPlayers);
             }
