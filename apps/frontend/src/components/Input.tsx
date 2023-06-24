@@ -6,6 +6,8 @@ interface InputProps {
     field: 'numPlayer' | 'numWerewolf' | 'numSeer';
 }
 
+const maxPlayer = 18;
+
 export const Input: FC<InputProps> = ({ field }) => {
     const { setNumbers, numbers, players, setPlayers } = useAppContext();
     const [value, setValue] = useState('');
@@ -13,9 +15,8 @@ export const Input: FC<InputProps> = ({ field }) => {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
         if (field === 'numPlayer' && +e.target.value > 18) {
-            setValue('18');
+            setValue(maxPlayer.toString());
             setNumbers((prev) => ({ ...prev, [field]: 18 }));
-            return;
         }
         if (
             field === 'numSeer' &&
@@ -40,11 +41,16 @@ export const Input: FC<InputProps> = ({ field }) => {
             return;
         }
 
-        setNumbers((prev) => ({ ...prev, [field]: +e.target.value }));
+        setNumbers((prev) => ({
+            ...prev,
+            [field]: Math.min(maxPlayer, +e.target.value),
+        }));
         if (field === 'numPlayer') {
             const newPlayers = [...players];
-            if (newPlayers.length < +e.target.value) {
-                while (newPlayers.length < +e.target.value) {
+            if (newPlayers.length < Math.min(maxPlayer, +e.target.value)) {
+                while (
+                    newPlayers.length < Math.min(maxPlayer, +e.target.value)
+                ) {
                     newPlayers.push({
                         name: '',
                         role: '' as 'werewolf' | 'seer' | 'villager',
@@ -52,8 +58,10 @@ export const Input: FC<InputProps> = ({ field }) => {
                 }
                 setPlayers(newPlayers);
             }
-            if (newPlayers.length > +e.target.value)
-                setPlayers((prev) => prev.slice(0, +e.target.value));
+            if (newPlayers.length > Math.min(maxPlayer, +e.target.value))
+                setPlayers((prev) =>
+                    prev.slice(0, Math.min(maxPlayer, +e.target.value))
+                );
         }
     };
     return (
