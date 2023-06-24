@@ -18,7 +18,8 @@
         "paths": {
             "@/*": ["./src/*"],
             "$modules/*": ["./src/modules/*"],
-            "$styles/*": ["./src/styles/*"]
+            "$styles/*": ["./src/styles/*"],
+            "$context/*": ["./src/core/context/*"]
         },
         "plugins": [
             {

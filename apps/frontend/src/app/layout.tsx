@@ -1,7 +1,7 @@
 import { Layout } from '$modules/Layout';
 import '$styles/globals.css';
+import { AppProvider } from '$context/appProvider';
 import { Metadata } from 'next';
-// import { AppProvider } from "src/core/contexts/appProvider";
 
 export const metadata: Metadata = {
     title: 'werewolf',
@@ -17,9 +17,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <>
             <html lang="en">
                 <body>
-                    {/* <AppProvider> */}
-                    <Layout>{children}</Layout>
-                    {/* </AppProvider> */}
+                    <AppProvider>
+                        <Layout>{children}</Layout>
+                    </AppProvider>
                 </body>
             </html>
         </>
