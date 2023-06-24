@@ -1,18 +1,40 @@
 'use client';
-import { createContext, useContext } from 'react';
+import { Dispatch, SetStateAction, createContext, useContext } from 'react';
 
 export type themeOptionsType = 'default' | 'dark' | 'subaru' | 'bocchi';
+
+export type PlayersType = { name: string; role: string }[];
 
 interface IAppContext {
     themeOptions: themeOptionsType;
     handleThemeOptions: (newTheme: themeOptionsType) => void;
-    players: string[];
+    numbers: {
+        numPlayer: number;
+        numWerewolf: number;
+        numSeer: number;
+    };
+    setNumbers: Dispatch<
+        SetStateAction<{
+            numPlayer: number;
+            numWerewolf: number;
+            numSeer: number;
+        }>
+    >;
+    players: PlayersType;
+    setPlayers: Dispatch<SetStateAction<PlayersType>>;
 }
 
 export const AppContext = createContext<IAppContext>({
     themeOptions: 'default',
     handleThemeOptions: () => null,
+    numbers: {
+        numPlayer: 0,
+        numWerewolf: 0,
+        numSeer: 0,
+    },
+    setNumbers: () => null,
     players: [],
+    setPlayers: () => null,
 });
 
 export function useAppContext() {
