@@ -1,55 +1,55 @@
 {
-  "name": "stupid-hackathon-7",
-  "version": "0.0.0",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "build": "turbo run build",
-    "build:frontend": "turbo run build --filter frontend",
-    "build:backend": "turbo run build --filter backend",
-    "db:generate": "turbo run db:generate --filter database",
-    "db:migrate:dev": "dotenv -e .env -- pnpm --filter database db:migrate:dev",
-    "db:migrate:deploy": "dotenv -e .env -- pnpm --filter database db:migrate:deploy",
-    "dev": "turbo run build --filter config --filter database && turbo run dev --parallel",
-    "dev:frontend": "turbo run build --filter config --filter types && turbo run dev --filter frontend --filter config --filter types",
-    "dev:backend": "turbo run build --filter config --filter database --filter types && turbo run dev --filter backend --filter config --filter database --filter types",
-    "test:backend": "turbo run test --filter backend",
-    "test:backend:cov": "turbo run test:cov --filter backend",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install"
-  },
-  "dependencies": {
-    "dotenv-cli": "^7.1.0"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^17.6.3",
-    "@commitlint/config-conventional": "^17.6.3",
-    "eslint": "^8.39.0",
-    "eslint-config-custom": "workspace:*",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.1.0",
-    "prettier": "latest",
-    "turbo": "latest"
-  },
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "packageManager": "pnpm@7.25.1",
-  "lint-staged": {
-    "*.{js,json,ts,tsx,md}": [
-      "prettier --write"
+    "name": "stupid-hackathon-7",
+    "version": "0.0.0",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "packages/*"
     ],
-    "*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  }
+    "scripts": {
+        "build": "turbo run build",
+        "build:frontend": "turbo run build --filter frontend",
+        "build:backend": "turbo run build --filter backend",
+        "db:generate": "turbo run db:generate --filter database",
+        "db:migrate:dev": "dotenv -e .env -- pnpm --filter database db:migrate:dev",
+        "db:migrate:deploy": "dotenv -e .env -- pnpm --filter database db:migrate:deploy",
+        "dev": "turbo run build --filter config --filter database && turbo run dev --parallel",
+        "dev:frontend": "turbo run build --filter config --filter types && turbo run dev --filter frontend --filter config --filter types",
+        "dev:backend": "turbo run build --filter config --filter database --filter types && turbo run dev --filter backend --filter config --filter database --filter types",
+        "test:backend": "turbo run test --filter backend",
+        "test:backend:cov": "turbo run test:cov --filter backend",
+        "lint": "turbo run lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "dotenv-cli": "^7.1.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.6.3",
+        "@commitlint/config-conventional": "^17.6.3",
+        "eslint": "^8.39.0",
+        "eslint-config-custom": "workspace:*",
+        "husky": "^8.0.0",
+        "lint-staged": "^13.1.0",
+        "prettier": "2.8.8",
+        "turbo": "latest"
+    },
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "packageManager": "pnpm@7.25.1",
+    "lint-staged": {
+        "*.{js,json,ts,tsx,md}": [
+            "prettier --write"
+        ],
+        "*.{js,ts,tsx}": [
+            "eslint --fix"
+        ]
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    }
 }
