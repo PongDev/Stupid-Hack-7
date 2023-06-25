@@ -1,6 +1,7 @@
 import { AppProvider } from '$context/appProvider';
 import { Layout } from '$modules/Layout';
 import '$styles/globals.css';
+import ResponsivePage from '@/modules/Responsive/Responsive';
 import { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
@@ -24,7 +25,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <html lang="en">
             <body className={`${poppins.variable}`}>
                 <AppProvider>
-                    <Layout>{children}</Layout>
+                    <ResponsivePage>
+                        <Layout>{children}</Layout>
+                    </ResponsivePage>
                 </AppProvider>
             </body>
         </html>
