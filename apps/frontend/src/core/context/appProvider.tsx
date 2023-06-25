@@ -50,7 +50,6 @@ export const AppProvider: FC<PropsWithChildren> = ({ children }) => {
             rolesArr.splice(randomIndex, 1);
         }
         setPlayers(newPlayers);
-        console.log(newPlayers);
     };
 
     return (

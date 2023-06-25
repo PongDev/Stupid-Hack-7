@@ -2,7 +2,11 @@ import { Index } from '@/modules/Index';
 import { NextPage } from 'next';
 
 const IndexPage: NextPage = () => {
-    return <Index />;
+    return (
+        <>
+            <Index />
+        </>
+    );
 };
 
 export default IndexPage;

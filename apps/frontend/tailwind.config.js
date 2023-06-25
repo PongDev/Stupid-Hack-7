@@ -7,6 +7,9 @@ module.exports = {
                 som: '#FCA311',
                 mued: '#14213D',
             },
+            fontFamily: {
+                poppins: ['Poppins', 'sans-serif'],
+            },
         },
     },
     plugins: [],
