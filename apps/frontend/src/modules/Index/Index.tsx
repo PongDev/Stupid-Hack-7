@@ -15,15 +15,15 @@ export const Index: FC = () => {
             <div className="flex space-x-3 mb-8 justify-center">
                 <div className="flex flex-col items-center m-2">
                     <p className="mb-2">จำนวนผู้เล่นทั้งหมด</p>
-                    <Input field="numPlayer" defaultValue="6" />
+                    <Input field="numPlayer" />
                 </div>
                 <div className="flex flex-col items-center m-2">
                     <p className="mb-2">จำนวนหมาป่า</p>
-                    <Input field="numWerewolf" defaultValue="2" />
+                    <Input field="numWerewolf" />
                 </div>
                 <div className="flex flex-col items-center m-2">
                     <p className="mb-2">จำนวนผู้รอบรู้</p>
-                    <Input field="numSeer" defaultValue="1" />
+                    <Input field="numSeer" />
                 </div>
             </div>
             {players.length > 0 && (
