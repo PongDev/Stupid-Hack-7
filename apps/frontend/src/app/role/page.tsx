@@ -9,35 +9,16 @@ import Link from 'next/link';
 const IndexPage: NextPage = () => {
     const { players } = useAppContext();
     return (
-        <div
-            style={{
-                alignContent: 'center',
-                justifyContent: 'center',
-                textAlign: 'center',
-                padding: '1rem',
-            }}
-        >
-            <h1 style={{ fontSize: '3rem', padding: '1rem' }}>
-                Werewolf (Now Villager)
-            </h1>
-            <div
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '1rem',
-                }}
-            >
+        <div className="h-screen w-screen pt-16 font-poppins flex flex-col items-center">
+            <h1 className="text-4xl text-center mb-8">Werewolf</h1>
+            <div className="grid grid-cols-4 gap-8 max-w-7xl">
                 {players.map((p, index) => {
                     return (
-                        <Card
-                            key={index}
-                            role={p.role}
-                            text={`${index + 1}. ${p.name}`}
-                        />
+                        <Card key={index} role={p.role} text={`${p.name}`} />
                     );
                 })}
             </div>
-            <div className="mt-4">
+            <div className="mt-8">
                 <Link href={'/'}>
                     <Button>กลับ</Button>
                 </Link>

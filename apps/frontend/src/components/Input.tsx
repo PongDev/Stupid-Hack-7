@@ -1,5 +1,4 @@
 import { useAppContext } from '@/core/context';
-import { log } from 'console';
 import { ChangeEvent, FC, useState } from 'react';
 
 interface InputProps {
@@ -66,7 +65,7 @@ export const Input: FC<InputProps> = ({ field }) => {
     };
     return (
         <input
-            className="border-2 border-black rounded-full h-8 p-4 text-center"
+            className="border-4 border-mued rounded-full h-8 p-4 text-center focus:border-som focus:outline-none hover:border-som transition duration-300 ease-in-out"
             type="number"
             value={value}
             onChange={(e) => handleChange(e)}

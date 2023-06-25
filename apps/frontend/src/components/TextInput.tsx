@@ -20,7 +20,7 @@ export const TextInput: FC<TextInputProps> = ({ id, text }) => {
     };
     return (
         <input
-            className="border-2 border-black rounded-full h-8 p-4 text-center mb-4"
+            className="border-4 border-mued rounded-full h-8 p-4 mb-4 transition duration-300 ease-in-out hover:border-som focus:border-som focus:outline-none"
             type="text"
             value={value}
             onChange={(e) => handleChange(e)}
