@@ -2,6 +2,7 @@ import { Layout } from '$modules/Layout';
 import '$styles/globals.css';
 import { AppProvider } from '$context/appProvider';
 import { Metadata } from 'next';
+import ResponsivePage from '@/modules/Responsive/Responsive';
 
 export const metadata: Metadata = {
     title: 'werewolf',
@@ -17,7 +18,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <html lang="en">
             <body>
                 <AppProvider>
-                    <Layout>{children}</Layout>
+                    <ResponsivePage>
+                        <Layout>{children}</Layout>
+                    </ResponsivePage>
                 </AppProvider>
             </body>
         </html>
